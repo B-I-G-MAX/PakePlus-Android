@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>预约成功 · VR学习舱</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-[#e8eae6]">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#f7f8f5] text-[#1f2a24] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-5 pt-4 pb-3 border-b border-[#e2e6df] bg-[#f7f8f5]">
+<div class="flex items-center justify-between">
+<a aria-label="返回首页" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="home.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:arrow-left"></iconify-icon>
+</a>
+<h1 class="text-[14px] font-semibold">预约成功</h1>
+<a aria-label="我的预约" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="my-bookings.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:notebook-tabs"></iconify-icon>
+</a>
+</div>
+<div class="mt-3 flex items-center gap-1.5 text-[10px]">
+<span class="flex items-center gap-1 text-[#2d5a45]"><span class="w-4 h-4 rounded-full bg-[#2d5a45] text-white flex items-center justify-center">1</span>选舱</span>
+<span class="flex-1 h-px bg-[#2d5a45]"></span>
+<span class="flex items-center gap-1 text-[#2d5a45]"><span class="w-4 h-4 rounded-full bg-[#2d5a45] text-white flex items-center justify-center">2</span>选时段</span>
+<span class="flex-1 h-px bg-[#2d5a45]"></span>
+<span class="flex items-center gap-1 text-[#2d5a45]"><span class="w-4 h-4 rounded-full bg-[#2d5a45] text-white flex items-center justify-center">3</span>确认</span>
+<span class="flex-1 h-px bg-[#2d5a45]"></span>
+<span class="flex items-center gap-1 text-[#2d5a45] font-medium"><span class="w-4 h-4 rounded-full bg-[#2d5a45] text-white flex items-center justify-center">4</span>完成</span>
+</div>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden px-5 pt-5 pb-3">
+<div class="flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-[#e9f0ea] flex items-center justify-center">
+<iconify-icon class="text-[28px] text-[#2d5a45]" icon="lucide:check"></iconify-icon>
+</div>
+<h2 class="mt-3 text-[18px] font-semibold">预约已提交</h2>
+<p class="mt-1 text-[11px] text-[#7c8a80]">请在开始前 10 分钟到舱扫码签到</p>
+</div>
+<!-- 签到凭证 -->
+<section class="mt-4 rounded-2xl bg-white border border-[#e3e7e0] overflow-hidden">
+<div class="p-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e]">预约编号</p>
+<p class="mt-0.5 text-[13px] font-semibold mono" id="code-text">VR000000</p>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#e9f0ea] text-[#2d5a45]">待签到</span>
+</div>
+<div class="mt-3 space-y-2 text-[11px]">
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">舱位</span>
+<span class="text-[#3d5347] font-medium" id="rec-pod">A02 双人协作舱</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">日期</span>
+<span class="text-[#3d5347]" id="rec-date">2026-11-09 周一</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">时段</span>
+<span class="text-[#3d5347]" id="rec-time">17:00-18:00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">位置</span>
+<span class="text-[#3d5347]">4F 学习区 · 东侧 B 排</span>
+</div>
+</div>
+</div>
+<!-- 模拟签到码 -->
+<div class="border-t border-dashed border-[#e2e6df] bg-[#fafbf8] p-4 flex flex-col items-center">
+<div class="w-[104px] h-[104px] grid grid-cols-8 gap-[2px] p-1.5 bg-white border border-[#e3e7e0] rounded-lg" id="qr"></div>
+<p class="mt-2 text-[10px] text-[#8a978e]">到舱后出示此码，或使用校园卡签到</p>
+</div>
+</section>
+<!-- 提醒 -->
+<section class="mt-3 rounded-2xl bg-white border border-[#e3e7e0] p-3.5">
+<div class="flex items-center gap-2">
+<iconify-icon class="text-[15px] text-[#2d5a45]" icon="lucide:bell-ring"></iconify-icon>
+<h2 class="text-[12px] font-semibold">已为你开启提醒</h2>
+</div>
+<p class="mt-1.5 text-[11px] text-[#5c6b62] leading-relaxed">开始前 15 分钟将推送站内消息；超过开始时间 10 分钟未签到，预约将自动释放给其他同学。</p>
+</section>
+<section class="mt-3 rounded-2xl bg-white border border-[#e3e7e0] p-3.5">
+<div class="flex items-center justify-between">
+<h2 class="text-[12px] font-semibold">使用前检查</h2>
+<a class="text-[11px] text-[#2d5a45]" href="pod-detail.html">设备状态</a>
+</div>
+<div class="mt-2 flex items-center gap-3 text-[11px] text-[#5c6b62]">
+<span class="flex items-center gap-1"><iconify-icon class="text-[13px] text-[#2d5a45]" icon="lucide:battery-medium"></iconify-icon><span id="rec-battery">82%</span></span>
+<span class="flex items-center gap-1"><iconify-icon class="text-[13px] text-[#2d5a45]" icon="lucide:sparkles"></iconify-icon>消毒已完成</span>
+</div>
+<a class="mt-2 inline-flex items-center gap-1 text-[11px] text-[#2d5a45]" href="battery-history.html">查看电量历史 <iconify-icon class="text-[12px]" icon="lucide:chevron-right"></iconify-icon></a>
+</section>
+<aside class="mt-3 rounded-xl border border-dashed border-[#cfd9d1] bg-[#f1f4ef] p-3">
+<p class="text-[10px] tracking-wider text-[#8a978e] mb-1">原型备注 · 用户测试用</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">需求假设A1：假设用户看得懂设备状态图标；</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">故意缺陷D1：原型缺少设备报修入口，用于用户测试。</p>
+</aside>
+<div class="h-2"></div>
+</main>
+<div class="shrink-0 bg-white border-t border-[#e2e6df] px-5 py-3 flex gap-2">
+<a class="flex-1 text-center py-2.5 rounded-xl border border-[#cfd9d1] text-[13px] text-[#3d5347]" href="home.html">返回选舱</a>
+<a class="flex-1 text-center py-2.5 rounded-xl bg-[#2d5a45] text-white text-[13px]" href="my-bookings.html">查看我的预约</a>
+</div>
+</div>
+<script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var pod = params.get('pod') || 'A01';
+      var date = params.get('date') || '11-09';
+      var time = params.get('time') || '17:00-18:00';
+      var podNames = { A01: 'A01 沉浸式学习舱', A02: 'A02 双人协作舱', A03: 'A03 沉浸式学习舱', B02: 'B02 双人协作舱' };
+      var podBattery = { A01: '82%', A02: '34%', A03: '96%', B02: '62%' };
+      var dateNames = { '11-09': '2026-11-09 周一', '11-10': '2026-11-10 周二', '11-11': '2026-11-11 周三' };
+
+      var record = null;
+      try {
+        var raw = sessionStorage.getItem('vrBooking');
+        if (raw) { record = JSON.parse(raw); }
+      } catch (e) { record = null; }
+      if (!record) {
+        record = { pod: pod, date: date, time: time, code: 'VR384512' };
+        try { sessionStorage.setItem('vrBooking', JSON.stringify(record)); } catch (e) {}
+      }
+
+      document.getElementById('code-text').textContent = record.code || 'VR384512';
+      document.getElementById('rec-pod').textContent = podNames[record.pod] || record.pod;
+      document.getElementById('rec-date').textContent = dateNames[record.date] || record.date;
+      document.getElementById('rec-time').textContent = record.time;
+      document.getElementById('rec-battery').textContent = podBattery[record.pod] || '82%';
+
+      var qr = document.getElementById('qr');
+      var cells = '';
+      for (var i = 0; i < 64; i++) {
+        var filled = (i * 7 + 3) % 11 < 5 || (i < 8) || (i % 8 === 0);
+        cells += '<span class="rounded-[1px] ' + (filled ? 'bg-[#1f2a24]' : 'bg-white') + '"></span>';
+      }
+      qr.innerHTML = cells;
+    })();
+  </script>
+</body>
+</html>
