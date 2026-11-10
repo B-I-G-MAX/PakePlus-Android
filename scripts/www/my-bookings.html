@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的预约 · VR学习舱</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-[#e8eae6]">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#f7f8f5] text-[#1f2a24] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-5 pt-4 pb-3 border-b border-[#e2e6df] bg-[#f7f8f5]">
+<div class="flex items-center justify-between">
+<a aria-label="返回首页" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="home.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:home"></iconify-icon>
+</a>
+<h1 class="text-[14px] font-semibold">我的预约</h1>
+<a aria-label="新建预约" class="w-9 h-9 rounded-full bg-[#2d5a45] flex items-center justify-center" href="booking-time.html">
+<iconify-icon class="text-[18px] text-white" icon="lucide:plus"></iconify-icon>
+</a>
+</div>
+<div class="mt-3 flex gap-4 text-[12px]">
+<button class="tab-btn pb-1.5" data-tab="active" type="button">待使用 <span class="text-[10px]">2</span></button>
+<button class="tab-btn pb-1.5" data-tab="done" type="button">已完成 <span class="text-[10px]">1</span></button>
+<button class="tab-btn pb-1.5" data-tab="canceled" type="button">已取消 <span class="text-[10px]">1</span></button>
+</div>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden px-5 pt-4 pb-3">
+<!-- 学生信息条 -->
+<div class="flex items-center justify-between rounded-xl bg-[#e9f0ea] px-3 py-2">
+<div class="flex items-center gap-2">
+<iconify-icon class="text-[14px] text-[#2d5a45]" icon="lucide:user-round"></iconify-icon>
+<span class="text-[11px] text-[#3d5347]">马鑫 · 当前可使用预约 1 个</span>
+</div>
+<span class="text-[10px] text-[#2d5a45]">爽约 0 次</span>
+</div>
+<!-- 待使用 -->
+<div class="mt-3 space-y-3" data-panel="active">
+<!-- 本次流程创建的预约 -->
+<article class="rounded-2xl bg-white border border-[#2d5a45] overflow-hidden">
+<div class="px-4 pt-3.5 pb-3">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e] mono" id="new-code">VR384512</p>
+<h2 class="mt-0.5 text-[15px] font-semibold" id="new-pod">A02 双人协作舱</h2>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#2d5a45] text-white">即将开始</span>
+</div>
+<div class="mt-2.5 flex items-center gap-2 text-[11px] text-[#5c6b62]">
+<iconify-icon class="text-[13px]" icon="lucide:calendar-days"></iconify-icon>
+<span id="new-date">2026-11-09 周一</span>
+<span class="text-[#cfd9d1]">|</span>
+<span id="new-time">17:00-18:00</span>
+</div>
+<div class="mt-2 flex items-center gap-3 text-[10px] text-[#7c8a80]">
+<span class="flex items-center gap-1"><iconify-icon class="text-[12px]" icon="lucide:map-pin"></iconify-icon>4F 学习区 · 东侧</span>
+<span class="flex items-center gap-1"><iconify-icon class="text-[12px] text-[#2d5a45]" icon="lucide:battery-medium"></iconify-icon><span id="new-battery">34%</span></span>
+</div>
+</div>
+<div class="px-4 pb-3 flex gap-2">
+<a class="flex-1 text-center py-2 rounded-lg border border-[#cfd9d1] text-[11.5px] text-[#3d5347]" href="booking-success.html">签到码</a>
+<a class="flex-1 text-center py-2 rounded-lg border border-[#cfd9d1] text-[11.5px] text-[#3d5347]" href="pod-detail.html">设备状态</a>
+<button class="cancel-btn flex-1 py-2 rounded-lg border border-[#c47b6a] text-[11.5px] text-[#a85a47]" data-date="11-09" data-pod="A02" data-time="17:00-18:00" type="button">取消预约</button>
+</div>
+</article>
+<!-- 明天预约 -->
+<article class="rounded-2xl bg-white border border-[#e3e7e0] overflow-hidden">
+<div class="px-4 pt-3.5 pb-3">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e] mono">VR381907</p>
+<h2 class="mt-0.5 text-[15px] font-semibold">A01 沉浸式学习舱</h2>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#e9f0ea] text-[#2d5a45]">待使用</span>
+</div>
+<div class="mt-2.5 flex items-center gap-2 text-[11px] text-[#5c6b62]">
+<iconify-icon class="text-[13px]" icon="lucide:calendar-days"></iconify-icon>
+<span>2026-11-10 周二</span>
+<span class="text-[#cfd9d1]">|</span>
+<span>10:00-12:00</span>
+</div>
+<div class="mt-2 flex items-center gap-3 text-[10px] text-[#7c8a80]">
+<span class="flex items-center gap-1"><iconify-icon class="text-[12px]" icon="lucide:map-pin"></iconify-icon>4F 学习区 · 西侧</span>
+<span class="flex items-center gap-1"><iconify-icon class="text-[12px] text-[#2d5a45]" icon="lucide:battery-medium"></iconify-icon>82%</span>
+</div>
+</div>
+<div class="px-4 pb-3 flex gap-2">
+<a class="flex-1 text-center py-2 rounded-lg border border-[#cfd9d1] text-[11.5px] text-[#3d5347]" href="booking-success.html">签到码</a>
+<a class="flex-1 text-center py-2 rounded-lg border border-[#cfd9d1] text-[11.5px] text-[#3d5347]" href="pod-detail.html">设备状态</a>
+<button class="cancel-btn flex-1 py-2 rounded-lg border border-[#c47b6a] text-[11.5px] text-[#a85a47]" data-date="11-10" data-pod="A01" data-time="10:00-12:00" type="button">取消预约</button>
+</div>
+</article>
+<p class="text-[10px] text-[#9aa79f] leading-relaxed">提示：同一时间只能保留 1 个有效预约。取消后时段会立即释放给其他同学。</p>
+</div>
+<!-- 已完成 -->
+<div class="mt-3 space-y-3 hidden" data-panel="done">
+<article class="rounded-2xl bg-white border border-[#e3e7e0] p-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e] mono">VR377210</p>
+<h2 class="mt-0.5 text-[14px] font-semibold">A03 沉浸式学习舱</h2>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#eef0ef] text-[#7c8a80]">已完成</span>
+</div>
+<p class="mt-2 text-[11px] text-[#5c6b62]">2026-11-06 周四 · 14:00-16:00</p>
+<p class="mt-1 text-[10px] text-[#8a978e]">实际使用 1 小时 52 分 · 准时签到 · 结束归还正常</p>
+<div class="mt-2.5 flex gap-2">
+<a class="flex-1 text-center py-2 rounded-lg border border-[#cfd9d1] text-[11.5px] text-[#3d5347]" href="battery-history.html">使用设备记录</a>
+<a class="flex-1 text-center py-2 rounded-lg border border-[#2d5a45] text-[11.5px] text-[#2d5a45]" href="booking-time.html">再次预约</a>
+</div>
+</article>
+</div>
+<!-- 已取消 -->
+<div class="mt-3 space-y-3 hidden" data-panel="canceled">
+<article class="rounded-2xl bg-white border border-[#e3e7e0] p-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e] mono">VR372044</p>
+<h2 class="mt-0.5 text-[14px] font-semibold">A02 双人协作舱</h2>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#f6efee] text-[#a85a47]">已取消</span>
+</div>
+<p class="mt-2 text-[11px] text-[#5c6b62]">2026-11-04 周二 · 19:00-20:00</p>
+<p class="mt-1 text-[10px] text-[#8a978e]">取消原因：课程调整 · 未计入爽约</p>
+<div class="mt-2.5 flex gap-2">
+<a class="flex-1 text-center py-2 rounded-lg border border-[#2d5a45] text-[11.5px] text-[#2d5a45]" href="booking-time.html">重新预约</a>
+</div>
+</article>
+</div>
+<aside class="mt-3 rounded-xl border border-dashed border-[#cfd9d1] bg-[#f1f4ef] p-3">
+<p class="text-[10px] tracking-wider text-[#8a978e] mb-1">原型备注 · 用户测试用</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">需求假设A1：假设用户看得懂设备状态图标；</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">故意缺陷D1：原型缺少设备报修入口，用于用户测试。</p>
+</aside>
+<div class="h-2"></div>
+</main>
+<nav class="shrink-0 bg-white border-t border-[#e2e6df] px-6 pt-2 pb-3">
+<div class="flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 w-16" href="home.html">
+<iconify-icon class="text-[21px] text-[#9aa79f]" icon="lucide:hexagon"></iconify-icon>
+<span class="text-[10px] text-[#9aa79f]">选舱</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16" href="battery-history.html">
+<iconify-icon class="text-[21px] text-[#9aa79f]" icon="lucide:line-chart"></iconify-icon>
+<span class="text-[10px] text-[#9aa79f]">设备记录</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16" href="booking-time.html">
+<iconify-icon class="text-[21px] text-[#9aa79f]" icon="lucide:calendar-plus"></iconify-icon>
+<span class="text-[10px] text-[#9aa79f]">预约</span>
+</a>
+<a class="flex flex-col items-center gap-1 w-16" href="my-bookings.html">
+<iconify-icon class="text-[21px] text-[#2d5a45]" icon="lucide:notebook-tabs"></iconify-icon>
+<span class="text-[10px] text-[#2d5a45] font-medium">我的预约</span>
+</a>
+</div>
+</nav>
+<!-- 取消确认弹层（默认隐藏） -->
+<div class="hidden absolute inset-0 z-30 bg-[#1f2a24]/35 items-end justify-center" id="cancel-modal">
+<div class="w-full max-w-[393px] bg-white rounded-t-2xl px-5 pt-4 pb-5">
+<div class="w-9 h-1 rounded-full bg-[#e2e6df] mx-auto"></div>
+<h2 class="mt-3 text-[15px] font-semibold">确认取消这次预约？</h2>
+<div class="mt-2 rounded-xl bg-[#fafbf8] border border-[#eef0ec] p-3 text-[11px] space-y-1">
+<div class="flex justify-between"><span class="text-[#7c8a80]">舱位</span><span class="text-[#3d5347]" id="modal-pod">A02 双人协作舱</span></div>
+<div class="flex justify-between"><span class="text-[#7c8a80]">时段</span><span class="text-[#3d5347]" id="modal-time">2026-11-09 周一 17:00-18:00</span></div>
+</div>
+<p class="mt-2 text-[10.5px] text-[#a85a47] leading-relaxed">取消后该时段将立即释放；开始前 2 小时内取消不计爽约，开始后未签到取消将计 1 次爽约。</p>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl border border-[#cfd9d1] text-[13px] text-[#3d5347]" id="keep-btn" type="button">保留预约</button>
+<button class="flex-1 py-2.5 rounded-xl bg-[#a85a47] text-white text-[13px]" id="confirm-cancel-btn" type="button">确认取消</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    (function () {
+      /* 读取本次流程创建的数据 */
+      var podNames = { A01: 'A01 沉浸式学习舱', A02: 'A02 双人协作舱', A03: 'A03 沉浸式学习舱', B02: 'B02 双人协作舱' };
+      var podBattery = { A01: '82%', A02: '34%', A03: '96%', B02: '62%' };
+      var dateNames = { '11-09': '2026-11-09 周一', '11-10': '2026-11-10 周二', '11-11': '2026-11-11 周三' };
+      var fallback = { pod: 'A01', date: '11-09', time: '16:00-17:00', code: 'VR384512' };
+      var rec = fallback;
+      try {
+        var raw = sessionStorage.getItem('vrBooking');
+        if (raw) { rec = JSON.parse(raw); }
+      } catch (e) { rec = fallback; }
+
+      var cancelled = false;
+      try { cancelled = sessionStorage.getItem('vrCanceled') === '1'; } catch (e) {}
+
+      var newCard = document.getElementById('new-code').closest('article');
+      if (!cancelled) {
+        document.getElementById('new-code').textContent = rec.code || fallback.code;
+        document.getElementById('new-pod').textContent = podNames[rec.pod] || rec.pod;
+        document.getElementById('new-date').textContent = dateNames[rec.date] || rec.date;
+        document.getElementById('new-time').textContent = rec.time;
+        document.getElementById('new-battery').textContent = podBattery[rec.pod] || '82%';
+        var cancelBtn = newCard.querySelector('.cancel-btn');
+        cancelBtn.setAttribute('data-pod', rec.pod);
+        cancelBtn.setAttribute('data-date', rec.date);
+        cancelBtn.setAttribute('data-time', rec.time);
+      } else {
+        newCard.remove();
+      }
+
+      /* Tab 切换 */
+      var tabs = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('[data-panel]');
+      function paintTab(name) {
+        tabs.forEach(function (t) {
+          var active = t.getAttribute('data-tab') === name;
+          t.className = 'tab-btn pb-1.5 ' + (active ? 'text-[#1f2a24] font-medium border-b-2 border-[#2d5a45]' : 'text-[#9aa79f] border-b-2 border-transparent');
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle('hidden', p.getAttribute('data-panel') !== name);
+        });
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { paintTab(t.getAttribute('data-tab')); });
+      });
+      paintTab('active');
+
+      /* 取消弹层 */
+      var modal = document.getElementById('cancel-modal');
+      var pending = null;
+      function openModal(pod, date, time) {
+        pending = { pod: pod, date: date, time: time };
+        document.getElementById('modal-pod').textContent = podNames[pod] || pod;
+        document.getElementById('modal-time').textContent = (dateNames[date] || date) + ' ' + time;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      document.querySelectorAll('.cancel-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openModal(btn.getAttribute('data-pod'), btn.getAttribute('data-date'), btn.getAttribute('data-time'));
+        });
+      });
+
+      document.getElementById('keep-btn').addEventListener('click', closeModal);
+
+      document.getElementById('confirm-cancel-btn').addEventListener('click', function () {
+        if (!pending) { return; }
+        try {
+          sessionStorage.setItem('vrCanceled', '1');
+          sessionStorage.setItem('vrCancelInfo', JSON.stringify(pending));
+        } catch (e) {}
+        window.location.href = 'cancel-result.html';
+      });
+    })();
+  </script>
+</body>
+</html>
