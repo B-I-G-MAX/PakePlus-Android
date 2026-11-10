@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>设备电量历史 · B02</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/echarts.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-[#e8eae6]">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#f7f8f5] text-[#1f2a24] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-5 pt-4 pb-3 border-b border-[#e2e6df] bg-[#f7f8f5]">
+<div class="flex items-center justify-between">
+<a aria-label="返回设备状态" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="pod-detail.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:arrow-left"></iconify-icon>
+</a>
+<h1 class="text-[14px] font-semibold">设备电量历史</h1>
+<a aria-label="我的预约" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="my-bookings.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:notebook-tabs"></iconify-icon>
+</a>
+</div>
+<p class="mt-2 text-[11px] text-[#7c8a80]">B02 双人协作舱 · 耳机编号 HP-2071</p>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden px-5 pt-4 pb-3">
+<!-- 时段切换 -->
+<div class="flex gap-1.5">
+<button class="range-chip px-3 py-1.5 rounded-full text-[12px] bg-[#2d5a45] text-white" data-range="day" type="button">近 24 小时</button>
+<button class="range-chip px-3 py-1.5 rounded-full text-[12px] bg-white border border-[#dfe4dc] text-[#4b5a51]" data-range="week" type="button">近 7 天</button>
+</div>
+<!-- 图表 -->
+<section class="mt-3 rounded-2xl bg-white border border-[#e3e7e0] p-3">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-[13px] font-semibold">耳机电量变化</h2>
+<p class="text-[10px] text-[#8a978e] mt-0.5">单位：%（电量）</p>
+</div>
+<span class="text-[10px] text-[#8a978e]">黄色区域为维护时段</span>
+</div>
+<div class="mt-2 w-full h-[176px]" id="battery-chart"></div>
+</section>
+<!-- 关键数据 -->
+<section class="mt-3 grid grid-cols-3 gap-2">
+<div class="rounded-xl bg-white border border-[#e3e7e0] px-2.5 py-2.5">
+<p class="text-[10px] text-[#7c8a80]">当前电量</p>
+<p class="mt-1 text-[16px] font-semibold leading-none">62%</p>
+</div>
+<div class="rounded-xl bg-white border border-[#e3e7e0] px-2.5 py-2.5">
+<p class="text-[10px] text-[#7c8a80]">24h 掉电</p>
+<p class="mt-1 text-[16px] font-semibold leading-none text-[#8a7440]">35%</p>
+</div>
+<div class="rounded-xl bg-white border border-[#e3e7e0] px-2.5 py-2.5">
+<p class="text-[10px] text-[#7c8a80]">充电次数</p>
+<p class="mt-1 text-[16px] font-semibold leading-none">2 次</p>
+</div>
+</section>
+<!-- 使用与消毒记录 -->
+<div class="mt-4 flex items-center justify-between">
+<h2 class="text-[13px] font-semibold">使用与消毒记录</h2>
+<span class="text-[10px] text-[#8a978e]">今日 11-09</span>
+</div>
+<section class="mt-2 rounded-2xl bg-white border border-[#e3e7e0] divide-y divide-[#eef0ec]">
+<div class="flex gap-3 p-3">
+<div class="w-8 h-8 rounded-lg bg-[#e9f0ea] flex items-center justify-center shrink-0">
+<iconify-icon class="text-[15px] text-[#2d5a45]" icon="lucide:battery-charging"></iconify-icon>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="text-[12px] font-medium">开始充电</p>
+<span class="text-[10px] text-[#8a978e]">14:50</span>
+</div>
+<p class="mt-0.5 text-[11px] text-[#7c8a80]">电量由 18% 充至 62%（充电中）</p>
+</div>
+</div>
+<div class="flex gap-3 p-3">
+<div class="w-8 h-8 rounded-lg bg-[#f4f1e8] flex items-center justify-center shrink-0">
+<iconify-icon class="text-[15px] text-[#8a7440]" icon="lucide:spray-can"></iconify-icon>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="text-[12px] font-medium">紫外消毒启动</p>
+<span class="text-[10px] text-[#8a978e]">15:02</span>
+</div>
+<p class="mt-0.5 text-[11px] text-[#7c8a80]">已完成 80%，剩余约 4 分钟</p>
+</div>
+</div>
+<div class="flex gap-3 p-3">
+<div class="w-8 h-8 rounded-lg bg-[#eef0ef] flex items-center justify-center shrink-0">
+<iconify-icon class="text-[15px] text-[#5c6b62]" icon="lucide:headphones"></iconify-icon>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="text-[12px] font-medium">上一位用户归还</p>
+<span class="text-[10px] text-[#8a978e]">14:45</span>
+</div>
+<p class="mt-0.5 text-[11px] text-[#7c8a80]">使用 1 小时 30 分 · 归还时电量 18%</p>
+</div>
+</div>
+<div class="flex gap-3 p-3">
+<div class="w-8 h-8 rounded-lg bg-[#eef0ef] flex items-center justify-center shrink-0">
+<iconify-icon class="text-[15px] text-[#5c6b62]" icon="lucide:user-round-check"></iconify-icon>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="text-[12px] font-medium">上一位用户扫码签到</p>
+<span class="text-[10px] text-[#8a978e]">13:15</span>
+</div>
+<p class="mt-0.5 text-[11px] text-[#7c8a80]">预约时段 13:00-14:30 · 准时签到</p>
+</div>
+</div>
+</section>
+<div class="mt-3 rounded-xl bg-[#e9f0ea] px-3 py-2.5 flex gap-2">
+<iconify-icon class="text-[14px] text-[#2d5a45] shrink-0 mt-0.5" icon="lucide:lightbulb"></iconify-icon>
+<p class="text-[11px] text-[#3d5347] leading-relaxed">建议：选择电量 ≥ 50% 的时段，可减少使用中途断电的可能。</p>
+</div>
+<aside class="mt-3 rounded-xl border border-dashed border-[#cfd9d1] bg-[#f1f4ef] p-3">
+<p class="text-[10px] tracking-wider text-[#8a978e] mb-1">原型备注 · 用户测试用</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">需求假设A1：假设用户看得懂设备状态图标；</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">故意缺陷D1：原型缺少设备报修入口，用于用户测试。</p>
+</aside>
+<div class="h-2"></div>
+</main>
+<div class="shrink-0 bg-white border-t border-[#e2e6df] px-5 py-3 flex gap-2">
+<a class="flex-1 text-center py-2.5 rounded-xl border border-[#cfd9d1] text-[13px] text-[#3d5347]" href="pod-detail.html">返回设备状态</a>
+<a class="flex-1 text-center py-2.5 rounded-xl bg-[#2d5a45] text-white text-[13px]" href="booking-time.html?pod=B02">选择预约时段</a>
+</div>
+</div>
+<script>
+    (function () {
+      var chart = echarts.init(document.getElementById('battery-chart'));
+      var hours = ['14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00'];
+      var data = [42, 38, 26, 18, 30, 48, 62, 96, 94, 88, 80, 74, 62];
+      var option = {
+        grid: { left: 32, right: 10, top: 24, bottom: 24 },
+        tooltip: {
+          trigger: 'axis',
+          backgroundColor: '#ffffff',
+          borderColor: '#dfe4dc',
+          textStyle: { color: '#1f2a24', fontSize: 11 },
+          formatter: function (params) {
+            var p = params[0];
+            return p.axisValue + '<br/>耳机电量：' + p.value + '%';
+          }
+        },
+        xAxis: {
+          type: 'category',
+          data: hours,
+          axisLine: { lineStyle: { color: '#dfe4dc' } },
+          axisTick: { show: false },
+          axisLabel: { color: '#8a978e', fontSize: 9, interval: 2 }
+        },
+        yAxis: {
+          type: 'value',
+          min: 0,
+          max: 100,
+          interval: 25,
+          axisLine: { show: false },
+          axisTick: { show: false },
+          splitLine: { lineStyle: { color: '#eef0ec' } },
+          axisLabel: { color: '#8a978e', fontSize: 9, formatter: '{value}' }
+        },
+        series: [{
+          type: 'line',
+          data: data,
+          smooth: true,
+          symbol: 'circle',
+          symbolSize: 5,
+          showSymbol: false,
+          lineStyle: { color: '#2d5a45', width: 2 },
+          itemStyle: { color: '#2d5a45', borderColor: '#ffffff', borderWidth: 1.5 },
+          areaStyle: {
+            color: {
+              type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+              colorStops: [
+                { offset: 0, color: 'rgba(45,90,69,0.22)' },
+                { offset: 1, color: 'rgba(45,90,69,0.02)' }
+              ]
+            }
+          },
+          markArea: {
+            silent: true,
+            itemStyle: { color: 'rgba(160,138,74,0.10)' },
+            data: [[{ xAxis: '15:00' }, { xAxis: '16:00' }]]
+          }
+        }]
+      };
+      chart.setOption(option);
+
+      var chips = document.querySelectorAll('.range-chip');
+      var weekData = [88, 71, 64, 92, 55, 78, 62];
+      var weekX = ['11-03', '11-04', '11-05', '11-06', '11-07', '11-08', '11-09'];
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) {
+            c.className = 'range-chip px-3 py-1.5 rounded-full text-[12px] bg-white border border-[#dfe4dc] text-[#4b5a51]';
+          });
+          chip.className = 'range-chip px-3 py-1.5 rounded-full text-[12px] bg-[#2d5a45] text-white';
+          var isWeek = chip.getAttribute('data-range') === 'week';
+          chart.setOption({
+            xAxis: { data: isWeek ? weekX : hours, axisLabel: { interval: isWeek ? 0 : 2 } },
+            series: [{
+              data: isWeek ? weekData : data,
+              markArea: { silent: true, data: isWeek ? [] : [[{ xAxis: '15:00' }, { xAxis: '16:00' }]] }
+            }]
+          });
+        });
+      });
+
+      window.addEventListener('resize', function () { chart.resize(); });
+    })();
+  </script>
+</body>
+</html>
