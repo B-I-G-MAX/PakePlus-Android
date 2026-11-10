@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>取消成功 · VR学习舱</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-[#e8eae6]">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#f7f8f5] text-[#1f2a24] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-5 pt-4 pb-3 border-b border-[#e2e6df] bg-[#f7f8f5]">
+<div class="flex items-center justify-between">
+<a aria-label="返回我的预约" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="my-bookings.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:arrow-left"></iconify-icon>
+</a>
+<h1 class="text-[14px] font-semibold">取消结果</h1>
+<a aria-label="返回首页" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="home.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:hexagon"></iconify-icon>
+</a>
+</div>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden px-5 pt-5 pb-3">
+<div class="flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-[#f6efee] flex items-center justify-center">
+<iconify-icon class="text-[27px] text-[#a85a47]" icon="lucide:calendar-x-2"></iconify-icon>
+</div>
+<h2 class="mt-3 text-[18px] font-semibold">预约已取消</h2>
+<p class="mt-1 text-[11px] text-[#7c8a80]">该时段已释放，其他同学现可预约</p>
+</div>
+<!-- 取消详情 -->
+<section class="mt-4 rounded-2xl bg-white border border-[#e3e7e0] p-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-[10px] text-[#8a978e]">已取消的预约</p>
+<h3 class="mt-0.5 text-[14px] font-semibold" id="c-pod">A02 双人协作舱</h3>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#f6efee] text-[#a85a47]">已取消</span>
+</div>
+<div class="mt-2.5 space-y-2 text-[11px]">
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">日期时段</span>
+<span class="text-[#3d5347]" id="c-time">2026-11-09 周一 17:00-18:00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">释放时间</span>
+<span class="text-[#3d5347]">2026-11-09 15:17</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">爽约记录</span>
+<span class="text-[#2d5a45]">未计入（提前取消）</span>
+</div>
+<div class="flex justify-between">
+<span class="text-[#7c8a80]">当前可信度</span>
+<span class="text-[#3d5347]">良好 · 30 天内爽约 0 次</span>
+</div>
+</div>
+<div class="mt-3 flex items-start gap-2 rounded-lg bg-[#f1f4ef] px-3 py-2">
+<iconify-icon class="text-[13px] text-[#5c6b62] shrink-0 mt-0.5" icon="lucide:message-circle"></iconify-icon>
+<p class="text-[10.5px] text-[#5c6b62] leading-relaxed">如因临时课程调整取消，可在预约记录中查看历史；本原型不提供报修或人工申诉入口。</p>
+</div>
+</section>
+<!-- 可重新预约 -->
+<div class="mt-4 flex items-center justify-between">
+<h2 class="text-[13px] font-semibold">同时段仍可预约</h2>
+<a class="text-[11px] text-[#2d5a45]" href="home.html">全部舱位</a>
+</div>
+<section class="mt-2 space-y-2.5">
+<div class="rounded-2xl bg-white border border-[#e3e7e0] p-3.5 flex items-center justify-between">
+<div>
+<h3 class="text-[13px] font-medium">A03 沉浸式学习舱</h3>
+<p class="mt-0.5 text-[10.5px] text-[#7c8a80]">今天 18:00-20:00 · 耳机电量 96%</p>
+</div>
+<a class="text-[11.5px] px-3 py-1.5 rounded-lg bg-[#2d5a45] text-white" href="booking-time.html?pod=A03">重新预约</a>
+</div>
+<div class="rounded-2xl bg-white border border-[#e3e7e0] p-3.5 flex items-center justify-between">
+<div>
+<h3 class="text-[13px] font-medium">A01 沉浸式学习舱</h3>
+<p class="mt-0.5 text-[10.5px] text-[#7c8a80]">今天 19:00-20:00 · 耳机电量 82%</p>
+</div>
+<a class="text-[11.5px] px-3 py-1.5 rounded-lg border border-[#2d5a45] text-[#2d5a45]" href="booking-time.html?pod=A01">重新预约</a>
+</div>
+<div class="rounded-2xl bg-white border border-[#e3e7e0] p-3.5 flex items-center justify-between">
+<div>
+<h3 class="text-[13px] font-medium">B01 单人学习舱</h3>
+<p class="mt-0.5 text-[10.5px] text-[#8a7440]">维护中 · 替代时段 18:00 后可约</p>
+</div>
+<a class="text-[11.5px] px-3 py-1.5 rounded-lg border border-[#2d5a45] text-[#2d5a45]" href="booking-time.html?pod=B01">看替代时段</a>
+</div>
+</section>
+<!-- 重新选时段入口 -->
+<a class="mt-3 flex items-center justify-between rounded-2xl border border-[#dfe4dc] bg-white px-4 py-3" href="booking-time.html">
+<span class="flex items-center gap-2">
+<iconify-icon class="text-[16px] text-[#2d5a45]" icon="lucide:calendar-plus"></iconify-icon>
+<span class="text-[12px] text-[#3d5347]">按日期重新选择时段</span>
+</span>
+<iconify-icon class="text-[16px] text-[#9aa79f]" icon="lucide:chevron-right"></iconify-icon>
+</a>
+<aside class="mt-3 rounded-xl border border-dashed border-[#cfd9d1] bg-[#f1f4ef] p-3">
+<p class="text-[10px] tracking-wider text-[#8a978e] mb-1">原型备注 · 用户测试用</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">需求假设A1：假设用户看得懂设备状态图标；</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">故意缺陷D1：原型缺少设备报修入口，用于用户测试。</p>
+</aside>
+<div class="h-2"></div>
+</main>
+<div class="shrink-0 bg-white border-t border-[#e2e6df] px-5 py-3 flex gap-2">
+<a class="flex-1 text-center py-2.5 rounded-xl border border-[#cfd9d1] text-[13px] text-[#3d5347]" href="my-bookings.html">返回预约记录</a>
+<a class="flex-1 text-center py-2.5 rounded-xl bg-[#2d5a45] text-white text-[13px]" href="booking-time.html">重新预约</a>
+</div>
+</div>
+<script>
+    (function () {
+      var podNames = { A01: 'A01 沉浸式学习舱', A02: 'A02 双人协作舱', A03: 'A03 沉浸式学习舱', B01: 'B01 单人学习舱', B02: 'B02 双人协作舱' };
+      var dateNames = { '11-09': '2026-11-09 周一', '11-10': '2026-11-10 周二', '11-11': '2026-11-11 周三' };
+      var info = { pod: 'A02', date: '11-09', time: '17:00-18:00' };
+      try {
+        var raw = sessionStorage.getItem('vrCancelInfo');
+        if (raw) { info = JSON.parse(raw); }
+      } catch (e) {}
+      document.getElementById('c-pod').textContent = podNames[info.pod] || info.pod;
+      document.getElementById('c-time').textContent = (dateNames[info.date] || info.date) + ' ' + info.time;
+    })();
+  </script>
+</body>
+</html>
