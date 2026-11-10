@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>选择预约时段 · VR学习舱</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.js"></script>
+<style>
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+</style>
+</head>
+<body class="w-full h-full m-0 overflow-hidden flex items-center justify-center bg-[#e8eae6]">
+<div class="w-full h-full max-w-[393px] max-h-[852px] bg-[#f7f8f5] text-[#1f2a24] flex flex-col overflow-hidden relative">
+<header class="shrink-0 px-5 pt-4 pb-3 border-b border-[#e2e6df] bg-[#f7f8f5]">
+<div class="flex items-center justify-between">
+<a aria-label="返回舱位列表" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="home.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:arrow-left"></iconify-icon>
+</a>
+<h1 class="text-[14px] font-semibold">选择预约时段</h1>
+<a aria-label="我的预约" class="w-9 h-9 rounded-full bg-white border border-[#dfe4dc] flex items-center justify-center" href="my-bookings.html">
+<iconify-icon class="text-[17px] text-[#2d5a45]" icon="lucide:calendar-check"></iconify-icon>
+</a>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px] text-[#7c8a80]">
+<iconify-icon class="text-[13px]" icon="lucide:map-pin"></iconify-icon>
+<span>4F VR 学习区 · 选择舱位与时段</span>
+</div>
+</header>
+<main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden px-5 pt-4 pb-3">
+<!-- 舱位切换 -->
+<section class="rounded-2xl bg-white border border-[#e3e7e0] p-3">
+<div class="flex items-center justify-between">
+<h2 class="text-[13px] font-semibold">预约舱位</h2>
+<a class="text-[11px] text-[#2d5a45] flex items-center gap-0.5" href="pod-detail.html">设备状态 <iconify-icon class="text-[13px]" icon="lucide:chevron-right"></iconify-icon></a>
+</div>
+<div class="mt-2.5 flex gap-1.5">
+<button class="pod-btn flex-1 rounded-lg border border-[#dfe4dc] px-1.5 py-2 text-left" data-pod="A01" data-state="free" type="button">
+<p class="text-[12px] font-medium">A01</p>
+<p class="text-[9.5px] text-[#7c8a80] mt-0.5">单人 · 可用</p>
+</button>
+<button class="pod-btn flex-1 rounded-lg border border-[#dfe4dc] px-1.5 py-2 text-left" data-pod="A02" data-state="free" type="button">
+<p class="text-[12px] font-medium">A02</p>
+<p class="text-[9.5px] text-[#7c8a80] mt-0.5">双人 · 可用</p>
+</button>
+<button class="pod-btn flex-1 rounded-lg border border-[#dfe4dc] px-1.5 py-2 text-left" data-pod="B01" data-state="fix" type="button">
+<p class="text-[12px] font-medium">B01</p>
+<p class="text-[9.5px] text-[#8a7440] mt-0.5">检修 · 18:00 后</p>
+</button>
+<button class="pod-btn flex-1 rounded-lg border border-[#dfe4dc] px-1.5 py-2 text-left" data-pod="A03" data-state="free" type="button">
+<p class="text-[12px] font-medium">A03</p>
+<p class="text-[9.5px] text-[#7c8a80] mt-0.5">单人 · 16:00 后</p>
+</button>
+<button class="pod-btn flex-1 rounded-lg border border-[#dfe4dc] px-1.5 py-2 text-left" data-pod="B02" data-state="fix" type="button">
+<p class="text-[12px] font-medium">B02</p>
+<p class="text-[9.5px] text-[#8a7440] mt-0.5">维护中</p>
+</button>
+</div>
+</section>
+<!-- 维护提示 -->
+<section class="hidden mt-3 rounded-2xl border border-[#e7dfc8] bg-[#f8f5ec] p-3.5" id="alt-recommend">
+<div class="flex items-start gap-2">
+<iconify-icon class="text-[15px] text-[#8a7440] mt-0.5 shrink-0" icon="lucide:wrench"></iconify-icon>
+<div>
+<p class="text-[12px] font-medium" id="alt-title">B02 维护中，暂不可预约</p>
+<p class="mt-1 text-[11px] text-[#857a58] leading-relaxed" id="alt-desc">耳机电量模块检修，预计今日 16:40 恢复。为你推荐以下替代空闲时段：</p>
+</div>
+</div>
+<div class="mt-2.5 space-y-2">
+<a class="flex items-center justify-between rounded-xl bg-white border border-[#e7dfc8] px-3 py-2.5" href="booking-confirm.html?pod=A02&amp;date=11-09&amp;time=17:00-18:00&amp;alt=1">
+<div>
+<p class="text-[12px] font-medium">A02 双人协作舱 · 17:00-18:00</p>
+<p class="text-[10px] text-[#8a978e] mt-0.5">今天 · 耳机电量 34% · 步行 1 分钟</p>
+</div>
+<span class="text-[11px] text-[#2d5a45]">选它</span>
+</a>
+<a class="flex items-center justify-between rounded-xl bg-white border border-[#e7dfc8] px-3 py-2.5" href="booking-confirm.html?pod=A03&amp;date=11-09&amp;time=18:00-20:00&amp;alt=1">
+<div>
+<p class="text-[12px] font-medium">A03 沉浸式学习舱 · 18:00-20:00</p>
+<p class="text-[10px] text-[#8a978e] mt-0.5">今天 · 耳机电量 96% · 消毒已完成</p>
+</div>
+<span class="text-[11px] text-[#2d5a45]">选它</span>
+</a>
+</div>
+<p class="mt-2 text-[10px] text-[#a08a4a]">维护期间推荐不占用你的预约次数上限。</p>
+</section>
+<!-- 日期 -->
+<div class="mt-4 flex items-center justify-between">
+<h2 class="text-[13px] font-semibold">选择日期</h2>
+<span class="text-[10px] text-[#8a978e]">可预约未来 3 天</span>
+</div>
+<section class="mt-2 flex gap-2">
+<button class="date-btn flex-1 rounded-xl border px-2 py-2.5 text-center" data-date="11-09" type="button">
+<p class="text-[10px] text-[#7c8a80]">今天</p>
+<p class="mt-0.5 text-[13px] font-medium">11-09</p>
+</button>
+<button class="date-btn flex-1 rounded-xl border px-2 py-2.5 text-center" data-date="11-10" type="button">
+<p class="text-[10px] text-[#7c8a80]">明天</p>
+<p class="mt-0.5 text-[13px] font-medium">11-10</p>
+</button>
+<button class="date-btn flex-1 rounded-xl border px-2 py-2.5 text-center" data-date="11-11" type="button">
+<p class="text-[10px] text-[#7c8a80]">周三</p>
+<p class="mt-0.5 text-[13px] font-medium">11-11</p>
+</button>
+</section>
+<!-- 时段 -->
+<div class="mt-4 flex items-center justify-between">
+<h2 class="text-[13px] font-semibold">可用时段</h2>
+<div class="flex items-center gap-2.5 text-[10px] text-[#8a978e]">
+<span class="flex items-center gap-1"><i class="w-2 h-2 rounded-full bg-[#2d5a45] inline-block"></i>可约</span>
+<span class="flex items-center gap-1"><i class="w-2 h-2 rounded-full bg-[#d8ddd6] inline-block"></i>已满</span>
+<span class="flex items-center gap-1"><i class="w-2 h-2 rounded-full bg-[#e3d9bd] inline-block"></i>维护</span>
+</div>
+</div>
+<section class="mt-2 grid grid-cols-3 gap-2" id="slot-grid">
+<!-- 由脚本渲染 -->
+</section>
+<button class="mt-2 w-full text-center text-[11px] text-[#2d5a45] py-1.5" id="more-btn" type="button">展开更多时段（10:00-13:00）</button>
+<p class="mt-2 text-[10px] text-[#9aa79f] leading-relaxed" id="slot-hint">最长可连续预约 2 小时。选中后请在 15 分钟内确认，逾期时段将释放。</p>
+<aside class="mt-3 rounded-xl border border-dashed border-[#cfd9d1] bg-[#f1f4ef] p-3">
+<p class="text-[10px] tracking-wider text-[#8a978e] mb-1">原型备注 · 用户测试用</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">需求假设A1：假设用户看得懂设备状态图标；</p>
+<p class="text-[11px] text-[#5c6b62] leading-relaxed">故意缺陷D1：原型缺少设备报修入口，用于用户测试。</p>
+</aside>
+<div class="h-2"></div>
+</main>
+<div class="shrink-0 bg-white border-t border-[#e2e6df] px-5 py-3">
+<div class="flex items-center justify-between text-[11px] text-[#5c6b62]">
+<span id="selection-summary">未选择时段</span>
+<span class="text-[#8a978e]">单次上限 2 小时</span>
+</div>
+<button class="mt-2 w-full py-2.5 rounded-xl bg-[#c9d2cb] text-white text-[13px] text-center" disabled="" id="next-btn" type="button">去确认预约</button>
+</div>
+</div>
+<script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var state = {
+        pod: params.get('pod') || 'A01',
+        date: params.get('date') === '11-10' || params.get('date') === '11-11' ? params.get('date') : '11-09',
+        slots: ['16:00-17:00', '17:00-18:00', '18:00-19:00', '19:00-20:00', '20:00-21:00', '21:00-22:00'],
+        morningSlots: ['10:00-11:00', '11:00-12:00', '12:00-13:00', '13:00-14:00', '14:00-15:00', '15:00-16:00'],
+        expanded: false,
+        slotState: {}
+      };
+      if (['A01', 'A02', 'A03', 'B01', 'B02'].indexOf(state.pod) < 0) { state.pod = 'A01'; }
+
+      /* 固定的舱位时段占用表：free 可约 / full 已满 / maint 维护 / past 已过 */
+      var BASE = {
+        A01: { free: ['16:00-17:00', '17:00-18:00', '19:00-20:00', '20:00-21:00'], morningFree: ['11:00-12:00', '12:00-13:00'] },
+        A02: { free: ['16:00-17:00', '17:00-18:00', '18:00-19:00', '21:00-22:00'], morningFree: ['10:00-11:00', '12:00-13:00'] },
+        A03: { free: ['16:00-17:00', '18:00-19:00', '19:00-20:00', '21:00-22:00'], morningFree: ['11:00-12:00'] },
+        B01: { free: ['18:00-19:00', '19:00-20:00', '20:00-21:00'], morningFree: [], maint: ['14:00-15:00', '15:00-16:00', '16:00-17:00', '17:00-18:00'] },
+        B02: { free: ['16:00-17:00', '17:00-18:00'], morningFree: ['10:00-11:00', '13:00-14:00'], maint: ['14:00-15:00', '15:00-16:00'] }
+      };
+
+      function stateOfSlot(s) {
+        var rule = BASE[state.pod] || BASE.A01;
+        if (state.date !== '11-09') {
+          if (rule.maint && rule.maint.indexOf(s) >= 0) { return 'maint'; }
+          return 'free';
+        }
+        if (rule.maint && rule.maint.indexOf(s) >= 0) { return 'maint'; }
+        if (state.morningSlots.indexOf(s) >= 0) {
+          return rule.morningFree.indexOf(s) >= 0 ? 'past' : 'past';
+        }
+        return rule.free.indexOf(s) >= 0 ? 'free' : 'full';
+      }
+
+      function buildSlotState() {
+        var result = {};
+        var list = state.slots.concat(state.expanded ? state.morningSlots : []);
+        list.forEach(function (s) {
+          result[s] = stateOfSlot(s);
+        });
+        if (state.date === '11-10') {
+          result['19:00-20:00'] = 'full';
+          result['15:00-16:00'] = 'full';
+        }
+        if (state.date === '11-11') {
+          result['20:00-21:00'] = 'full';
+          result['11:00-12:00'] = 'full';
+        }
+        state.slotState = result;
+      }
+
+      var podBtns = document.querySelectorAll('.pod-btn');
+      var dateBtns = document.querySelectorAll('.date-btn');
+      var grid = document.getElementById('slot-grid');
+      var summary = document.getElementById('selection-summary');
+      var nextBtn = document.getElementById('next-btn');
+      var hint = document.getElementById('slot-hint');
+      var moreBtn = document.getElementById('more-btn');
+      var altBox = document.getElementById('alt-recommend');
+
+      function renderMoreBtn() {
+        moreBtn.textContent = state.expanded
+          ? '收起上午时段（10:00-13:00）'
+          : '展开更多时段（10:00-13:00）';
+      }
+
+      function paintPods() {
+        podBtns.forEach(function (b) {
+          var active = b.getAttribute('data-pod') === state.pod;
+          var isFix = b.getAttribute('data-state') === 'fix';
+          var base = 'pod-btn flex-1 rounded-lg border px-1.5 py-2 text-left ';
+          b.className = base + (active ? 'border-[#2d5a45] bg-[#e9f0ea]' : 'border-[#dfe4dc] ' + (isFix ? 'bg-[#faf8f1]' : 'bg-white'));
+        });
+      }
+
+      function paintDates() {
+        dateBtns.forEach(function (b) {
+          var active = b.getAttribute('data-date') === state.date;
+          var base = 'date-btn flex-1 rounded-xl border px-2 py-2.5 text-center ';
+          b.className = base + (active ? 'border-[#2d5a45] bg-[#e9f0ea]' : 'border-[#dfe4dc] bg-white');
+        });
+      }
+
+      function paintSlots() {
+        grid.innerHTML = '';
+        var list = state.slots.concat(state.expanded ? state.morningSlots : []);
+        list.forEach(function (s) {
+          var st = state.slotState[s];
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          var label = s;
+          var extra = '';
+          if (st === 'free') {
+            btn.className = 'slot-btn rounded-xl border border-[#dfe4dc] bg-white py-2.5 text-[12px] text-[#3d5347]';
+          } else if (st === 'full') {
+            btn.className = 'rounded-xl border border-[#eef0ec] bg-[#f2f4f1] py-2.5 text-[12px] text-[#b3bdb6]';
+            extra = state.morningSlots.indexOf(s) >= 0 ? '已过' : '已满';
+            btn.disabled = true;
+          } else if (st === 'maint') {
+            btn.className = 'rounded-xl border border-[#efe6cf] bg-[#faf7ee] py-2.5 text-[12px] text-[#a08a4a]';
+            extra = '维护';
+            btn.disabled = true;
+          } else {
+            btn.className = 'rounded-xl border border-[#eef0ec] bg-[#f6f7f4] py-2.5 text-[12px] text-[#c2cac3]';
+            extra = '已过';
+            btn.disabled = true;
+          }
+          if (st === 'free') {
+            btn.innerHTML = '<span class="block leading-tight">' + label + '</span>';
+            btn.addEventListener('click', function () {
+              document.querySelectorAll('.slot-btn').forEach(function (b) {
+                b.className = 'slot-btn rounded-xl border border-[#dfe4dc] bg-white py-2.5 text-[12px] text-[#3d5347]';
+              });
+              btn.className = 'slot-btn rounded-xl border border-[#2d5a45] bg-[#2d5a45] py-2.5 text-[12px] text-white';
+              updateSelection(s);
+            });
+          } else {
+            btn.innerHTML = '<span class="block leading-tight">' + label + '</span><span class="block text-[9px] mt-0.5">' + extra + '</span>';
+          }
+          grid.appendChild(btn);
+        });
+      }
+
+      function updateSelection(slot) {
+        state.slot = slot;
+        summary.textContent = state.pod + ' · ' + state.date + ' · ' + slot;
+        summary.className = 'text-[11px] text-[#2d5a45] font-medium';
+        nextBtn.disabled = false;
+        nextBtn.className = 'mt-2 w-full py-2.5 rounded-xl bg-[#2d5a45] text-white text-[13px] text-center';
+      }
+
+      function clearSelection() {
+        state.slot = null;
+        summary.textContent = '未选择时段';
+        summary.className = 'text-[11px] text-[#5c6b62]';
+        nextBtn.disabled = true;
+        nextBtn.className = 'mt-2 w-full py-2.5 rounded-xl bg-[#c9d2cb] text-white text-[13px] text-center';
+      }
+
+      function refresh() {
+        buildSlotState();
+        paintPods();
+        paintDates();
+        renderMoreBtn();
+        paintSlots();
+        clearSelection();
+        altBox.classList.toggle('hidden', state.pod !== 'B02' && state.pod !== 'B01');
+        document.getElementById('alt-title').textContent = state.pod + ' 维护中，暂不可预约';
+        document.getElementById('alt-desc').textContent = state.pod === 'B01'
+          ? '耳机模块检修，今日 17:00 前时段不可用，预计 18:00 恢复。为你推荐以下替代空闲时段：'
+          : '耳机电量模块检修，预计今日 16:40 恢复。为你推荐以下替代空闲时段：';
+        hint.textContent = state.pod === 'B02'
+          ? '该舱今日维护中，暂无可约时段，可在上方选择替代舱位或切换到明后两天。'
+          : '最长可连续预约 2 小时。选中后请在 15 分钟内确认，逾期时段将释放。';
+      }
+
+      podBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          state.pod = b.getAttribute('data-pod');
+          refresh();
+        });
+      });
+
+      dateBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          state.date = b.getAttribute('data-date');
+          refresh();
+        });
+      });
+
+      moreBtn.addEventListener('click', function () {
+        state.expanded = !state.expanded;
+        refresh();
+      });
+
+      nextBtn.addEventListener('click', function () {
+        if (!state.slot) { return; }
+        var url = 'booking-confirm.html?pod=' + encodeURIComponent(state.pod) +
+          '&date=' + encodeURIComponent(state.date) +
+          '&time=' + encodeURIComponent(state.slot);
+        window.location.href = url;
+      });
+
+      refresh();
+    })();
+  </script>
+</body>
+</html>
